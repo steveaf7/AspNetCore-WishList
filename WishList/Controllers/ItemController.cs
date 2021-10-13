@@ -17,9 +17,10 @@ namespace WishList.Controllers
             _context = context;
         }
 
-        public IActionResult Index(List<Item> context)
+        public IActionResult Index()
         {
-            return View("Index", context);
+            var model = _context.Items.ToList();
+            return View("Index", model);
         }
 
         [HttpGet]
